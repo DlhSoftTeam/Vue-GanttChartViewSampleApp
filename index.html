@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>GanttChartView sample</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700" rel="stylesheet">
+    <!-- Vue. When deploying, remove "vue/dist/vue.js" with "vue". -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- DlhSoft Gantt Chart Hyper Library core -->
+    <script src="DlhSoft.Data.HTML.Controls.js"></script>
+    <script src="DlhSoft.ProjectData.GanttChart.HTML.Controls.js"></script>
+    <script src="DlhSoft.ProjectData.PertChart.HTML.Controls.js"></script>
+    <!-- DlhSoft Gantt Chart Hyper Library extensions -->
+    <script src="DlhSoft.ProjectData.GanttChart.Vue.Components.js"></script>
+    <script src="DlhSoft.ProjectData.PertChart.Vue.Components.js"></script>
+    <!-- Main app component -->
+    <script src="app.js" defer></script>
+</head>
+<body style="font-family: Roboto;">
+    <h1>GanttChartView sample</h1>
+    <div id="app">
+        <gantt-chart v-bind:items="items" v-bind:settings="settings"
+                     v-on:change="onItemChanged"
+                     style="min-height: 388px">
+            ...
+        </gantt-chart>
+    </div>
+</body>
+</html>
