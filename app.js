@@ -84,6 +84,12 @@ columns.push({ header: 'Est. finish', width: 140, cellTemplate: DlhSoft.Controls
 //         function (value) { item['targetDate'] = DlhSoft.Controls.GanttChartView.getOutputDate(value); }); } });
 settings.columns = columns;
 
+function onItemChanged(item, propertyName, isDirect, isFinal) {
+    if (!isDirect || !isFinal) // Skip internal changes, and changes occurred during drag operations.
+        return;
+    console.log(propertyName + ' changed for ' + item.content + '.');
+}
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -91,11 +97,6 @@ var app = new Vue({
       settings: settings
     },
     methods: {
-        onItemChanged: function(args) {
-            var item = args.item, propertyName = args.propertyName, isDirect = args.isDirect, isFinal = args.isFinal;
-            if (!isDirect || !isFinal) // Skip internal changes, and changes occurred during drag operations.
-                return;
-            console.log(propertyName + ' changed for ' + item.content + '.');
-        }
+        onItemChanged: function(args) { onItemChanged(args.item, args.propertyName, args.isDirect, args. isFinal); }
     }
 });
